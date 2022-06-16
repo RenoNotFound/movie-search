@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLazyQuery, gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 const SEARCH_MOVIES = gql`
   query SearchMovies($title: String!) {
@@ -26,6 +27,7 @@ const MovieList = () => {
 
   //   if (loading) return <p>Loading...</p>;
   //   if (error) return <p>Error :(</p>;
+
   return (
     <>
       <div>
@@ -44,7 +46,9 @@ const MovieList = () => {
           <>
             {data.searchMovies.map((movie) => (
               <li key={movie.id}>
-                <p>{movie.name}</p>
+                <p>
+                  <Link to={"/movies/" + movie.id}>{movie.name}</Link>
+                </p>
                 <span>Score: {movie.score}</span>
                 <div>
                   {" "}
