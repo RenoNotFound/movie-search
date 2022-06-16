@@ -1,18 +1,25 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 import MovieList from "./components/MovieList";
 import Movie from "./components/Movie";
-import Movies from "./components/Movies";
+import Layout from "./components/Layout";
+import PageNotFound from "./components/PageNotFound";
 
-function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<MovieList />} />
-      <Route path="movies" element={<Movies />}>
-        <Route path=":movieId" element={<Movie />} />
-      </Route>
-    </Routes>
-  );
-}
+const App = () => {
+  const mainRoutes = {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "*", element: <Navigate to="/404" /> },
+      { path: "/", element: <MovieList /> },
+      { path: "/movies/:movieId", element: <Movie /> },
+      { path: "404", element: <PageNotFound /> },
+    ],
+  };
+
+  const routing = useRoutes([mainRoutes]);
+
+  return <>{routing}</>;
+};
 
 export default App;
