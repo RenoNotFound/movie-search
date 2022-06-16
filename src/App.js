@@ -1,9 +1,9 @@
 import "./App.css";
 import { Navigate, useRoutes } from "react-router-dom";
-import MovieList from "./components/MovieList";
-import Movie from "./components/Movie";
+import MovieList from "./components/movies/MovieList";
+import Movie from "./components/movies/Movie";
 import Layout from "./components/Layout";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./components/utils/PageNotFound";
 
 const App = () => {
   const mainRoutes = {
