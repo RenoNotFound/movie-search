@@ -1,12 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 import "./index.css";
 import App from "./App";
@@ -14,9 +9,6 @@ import App from "./App";
 const client = new ApolloClient({
   uri: "https://tmdb.sandbox.zoosh.ie/dev/grphql",
   cache: new InMemoryCache(),
-  // link: new HttpLink({
-  //   // useGETForQueries: true,
-  // }),
   connectToDevTools: true,
 });
 
