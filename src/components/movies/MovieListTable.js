@@ -38,6 +38,7 @@ const MovieListTable = ({ data }) => {
                   state={{
                     movieName: movie.name,
                     movieOverview: movie.overview,
+                    moviePoster: movie.poster,
                   }}
                 >
                   <Typography component="span">{movie.name}</Typography>
