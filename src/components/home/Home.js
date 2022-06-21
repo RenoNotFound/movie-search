@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { Grid, Container } from "@mui/material";
 
 import SearchBar from "./SearchBar";
 import MovieList from "../movies/MovieList";
+import RelatedMovieList from "../movies/RelatedMovieList";
 import { SEARCH_MOVIES } from "../movies/movieQueries";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [executeSearch, { loading, data }] = useLazyQuery(SEARCH_MOVIES); // handle error
+  const [executeSearch, { loading, error, data }] = useLazyQuery(SEARCH_MOVIES);
+
+  const navigate = useNavigate();
+  const { movieId } = useParams();
 
   const handleSearch = () => {
+    if (movieId) {
+      navigate("/");
+    }
     executeSearch({ variables: { title: searchQuery } });
   };
 
@@ -22,7 +30,11 @@ const Home = () => {
           setSearchQuery={setSearchQuery}
           handleSearch={handleSearch}
         />
-        <MovieList data={data} loading={loading} />
+        {movieId ? (
+          <RelatedMovieList movieId={movieId} />
+        ) : (
+          <MovieList data={data} loading={loading} error={error} />
+        )}
       </Grid>
     </Container>
   );

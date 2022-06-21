@@ -26,3 +26,34 @@ export const SEARCH_MOVIES = gql`
     }
   }
 `;
+
+export const GET_MOVIE = gql`
+  query getMovie($movieId: ID!) {
+    movie(id: $movieId) {
+      id
+      name
+      similar {
+        id
+        name
+        score
+        poster {
+          original
+          small
+          medium
+          large
+        }
+        genres {
+          name
+        }
+        overview
+        releaseDate
+        similar {
+          id
+          name
+          overview
+          releaseDate
+        }
+      }
+    }
+  }
+`;

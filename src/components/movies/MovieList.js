@@ -4,13 +4,15 @@ import { CircularProgress } from "@mui/material";
 
 import MovieListTable from "./MovieListTable";
 
-const MovieList = ({ data, loading }) => {
+const MovieList = ({ data, loading, error }) => {
   return (
     <>
-      {data ? (
-        <MovieListTable data={data} />
-      ) : loading ? (
+      {loading ? (
         <CircularProgress />
+      ) : data ? (
+        <MovieListTable data={data.searchMovies} />
+      ) : error ? (
+        <p>{error.message}</p>
       ) : (
         <></>
       )}

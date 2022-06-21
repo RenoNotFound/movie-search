@@ -13,24 +13,33 @@ import {
 } from "@mui/material";
 
 const MovieListTable = ({ data }) => {
+  console.log("MovieListTable: ");
+  console.log(data);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead color="primary">
           <TableRow>
             <TableCell>
-              <Typography component="span">Title</Typography>
+              <Typography sx={{ fontWeight: "bold" }} component="span">
+                Title
+              </Typography>
             </TableCell>
             <TableCell>
-              <Typography component="span">Score</Typography>
+              <Typography sx={{ fontWeight: "bold" }} component="span">
+                Score
+              </Typography>
             </TableCell>
             <TableCell>
-              <Typography component="span">Categories</Typography>
+              <Typography sx={{ fontWeight: "bold" }} component="span">
+                Categories
+              </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.searchMovies.map((movie) => (
+          {data.map((movie) => (
             <TableRow key={movie.id}>
               <TableCell component="td" scope="row">
                 <Link

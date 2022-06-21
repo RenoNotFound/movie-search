@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 
 import {
   Typography,
   Button,
   CircularProgress,
-  Link,
+  Link as MuiLink,
   ButtonGroup,
   Grid,
   Container,
@@ -100,7 +100,7 @@ const Movie = () => {
         ) : (
           <ButtonGroup variant="contained">
             <Button size="large" variant="contained">
-              <Link
+              <MuiLink
                 underline="none"
                 target="_blank"
                 href={`https://en.wikipedia.org/?curid=${wikipediaQuery.pageid}`}
@@ -113,10 +113,10 @@ const Movie = () => {
                 >
                   Wikipedia
                 </Typography>
-              </Link>
+              </MuiLink>
             </Button>
             <Button size="large" variant="contained">
-              <Link
+              <MuiLink
                 underline="none"
                 target="_blank"
                 href={`https://www.imdb.com/title/${imdbQuery.id}`}
@@ -129,10 +129,17 @@ const Movie = () => {
                 >
                   IMDB
                 </Typography>
-              </Link>
+              </MuiLink>
             </Button>
           </ButtonGroup>
         )}
+        <Button size="large" variant="contained" sx={{ mt: 3 }}>
+          <Link to={`/related/${movieId}`}>
+            <Typography component="span" color="#fff">
+              Related movies
+            </Typography>
+          </Link>
+        </Button>
       </Grid>
     </Container>
   );
