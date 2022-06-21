@@ -13,9 +13,6 @@ import {
 } from "@mui/material";
 
 const MovieListTable = ({ data }) => {
-  console.log("MovieListTable: ");
-  console.log(data);
-
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
