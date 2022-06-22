@@ -1,3 +1,30 @@
+.search-bar-container {
+    margin-bottom: 3em;
+}
+
 .search-bar {
     width: 60%;
 }
+
+.home-container {
+    margin: 3em 0;
+}
+
+.movie-container {
+    margin: 3em 0;
+    width: 70%;
+}
+
+.table-header {
+    font-weight: bold !important;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(92, 92, 92)
+}
+  
+a:hover {
+color: rgb(23, 23, 23);
+}
+  

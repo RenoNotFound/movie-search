@@ -1,3 +1,4 @@
+import "../movies/movies.css";
 import React, { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { useParams, useNavigate } from "react-router-dom";
@@ -24,7 +25,7 @@ const Home = () => {
   };
 
   return (
-    <Container elevation={6} sx={{ my: 5 }}>
+    <Container className="home-container" elevation={6}>
       <Grid container justifyContent="center" alignItems="center">
         <SearchBar
           setSearchQuery={setSearchQuery}

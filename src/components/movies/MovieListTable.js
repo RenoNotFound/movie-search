@@ -13,26 +13,24 @@ import {
 } from "@mui/material";
 
 const MovieListTable = ({ data }) => {
+  const createTableHeader = (text) => {
+    return (
+      <TableCell>
+        <Typography className="table-header" component="span">
+          {text}
+        </Typography>
+      </TableCell>
+    );
+  };
+
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead color="primary">
+      <Table aria-label="movies table">
+        <TableHead>
           <TableRow>
-            <TableCell>
-              <Typography sx={{ fontWeight: "bold" }} component="span">
-                Title
-              </Typography>
-            </TableCell>
-            <TableCell>
-              <Typography sx={{ fontWeight: "bold" }} component="span">
-                Score
-              </Typography>
-            </TableCell>
-            <TableCell>
-              <Typography sx={{ fontWeight: "bold" }} component="span">
-                Categories
-              </Typography>
-            </TableCell>
+            {createTableHeader("Title")}
+            {createTableHeader("Score")}
+            {createTableHeader("Categories")}
           </TableRow>
         </TableHead>
         <TableBody>

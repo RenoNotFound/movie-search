@@ -1,10 +1,14 @@
-import "../movies/movies.css";
 import React from "react";
 
 import { TextField, Button, Grid, Typography } from "@mui/material";
 
 const SearchBar = ({ setSearchQuery, handleSearch }) => (
-  <Grid container direction="row" justifyContent="center" sx={{ mb: 5 }}>
+  <Grid
+    container
+    className="search-bar-container"
+    direction="row"
+    justifyContent="center"
+  >
     <TextField
       className="search-bar"
       onInput={(e) => {
@@ -17,7 +21,7 @@ const SearchBar = ({ setSearchQuery, handleSearch }) => (
       placeholder="Search..."
     />
     <Button size="large" variant="contained" onClick={handleSearch}>
-      <Typography variant="subtitle1" component="div" sx={{ flexGrow: 1 }}>
+      <Typography variant="subtitle1" component="div">
         Search
       </Typography>
     </Button>

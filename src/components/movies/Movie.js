@@ -73,7 +73,7 @@ const Movie = () => {
   return (
     <Container style={{ width: "60%" }} sx={{ my: 5 }}>
       <Grid container alignItems="center" direction="column">
-        <Grid item sx={{ mb: 2, width: "30%" }}>
+        <Grid item sx={{ width: "40%" }}>
           <Box
             component="img"
             sx={{
@@ -83,12 +83,12 @@ const Movie = () => {
             src={state.moviePoster.original}
           />
         </Grid>
-        <Grid item sx={{ mb: 5 }}>
+        <Grid item sx={{ my: 3 }}>
           <Typography variant="h4" component="h2">
             {state.movieName}
           </Typography>
         </Grid>
-        <Grid item sx={{ mb: 5, width: "90%" }} alignSelf="center">
+        <Grid item sx={{ mb: 5, width: "100%" }}>
           <Typography variant="h6" component="div">
             {state.movieOverview}
           </Typography>

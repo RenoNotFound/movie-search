@@ -5,7 +5,6 @@ import Home from "./components/home/Home";
 import Movie from "./components/movies/Movie";
 import Layout from "./components/layout/Layout";
 import PageNotFound from "./components/utils/PageNotFound";
-import { MovieProvider } from "./contexts/MovieContext";
 
 const App = () => {
   const routes = {
@@ -22,7 +21,7 @@ const App = () => {
 
   const routing = useRoutes([routes]);
 
-  return <MovieProvider>{routing}</MovieProvider>;
+  return <>{routing}</>;
 };
 
 export default App;
